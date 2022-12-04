@@ -1,0 +1,48 @@
+
+   <div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <a class="btn btn-md btn-primary" href="studentes/create">Add New Students</a>
+            <hr>
+            <div class="card">
+                <div class="card-body">
+                    <h2>All Students Data</h2>
+                    <hr>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>name</th>
+                                <th>Email</th>
+                                <th>Call</th>
+                                <th>Photo</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% Students.forEach((element,index) => { %>
+                                <tr>
+                                    <td><%= index + 1 %> </td>
+                                    <td><%= element.name %> </td>
+                                    <td><%= element.email %> </td>
+                                    <td><%= element.call %> </td>
+                                    <td><img style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%;" src="assets/uploads/<%= element.photo %> " alt=""></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary" href="studentes/<%= element.id %> "><i class="fas fa-eye"></i></a>&nbsp;
+                                        <a class="btn btn-sm btn-warning" href="studentes/edit/<%= element._id %> "><i class="fas fa-edit"></i></a>&nbsp;
+                                        <a class="btn btn-sm btn-danger" href="studentes/delete/<%= element._id %> "><i class="fas fa-trash-alt"></i></a>
+                                    </td>
+                                </tr>
+                            <% }) %> 
+                            
+                        </tbody>
+
+                    </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
